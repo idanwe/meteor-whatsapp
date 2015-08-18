@@ -1,0 +1,32 @@
+.item-chat {
+  padding-right: 44px;
+
+  .last-message-text {
+    font-size: 14px;
+    margin-bottom: 2px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .last-message-timestamp {
+    position: absolute;
+    top: 16px;
+    right: 38px;
+    font-size: 14px;
+  }
+
+  .last-message-text, .last-message-timestamp, .ion-ios-arrow-forward {
+    color: #9A9898;
+  }
+
+  .icon {
+    right: 11px;
+    font-size: 24px;
+
+    &::before {
+      width: 21px;
+    }
+  }
+}

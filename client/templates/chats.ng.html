@@ -1,0 +1,25 @@
+<ion-view title="Chats">
+  <ion-nav-buttons side="right">
+    <button class="button button-clear button-positive button-icon ion-ios-compose-outline"></button>
+  </ion-nav-buttons>
+
+  <ion-nav-buttons side="left">
+    <button class="button button-clear button-positive">Edit</button>
+  </ion-nav-buttons>
+
+  <ion-content class="has-header">
+
+    <div class="list">
+      <div ng-repeat="chat in chats | orderBy:'-lastMessage.timestamp'"
+           ui-sref=".chat({ id: chat._id })"
+           class="item item-chat item-avatar item-icon-right">
+        <img class="logo" src="{{chat.logoUrl}}">
+        <h2 class="name">{{chat.name}}</h2>
+        <div class="last-message-text">{{chat.lastMessage.text}}</div>
+        <span class="last-message-timestamp">{{chat.lastMessage.timestamp | waCalendar}}</span>
+        <i class="icon ion-ios-arrow-forward"></i>
+      </div>
+    </div>
+
+  </ion-content>
+</ion-view>

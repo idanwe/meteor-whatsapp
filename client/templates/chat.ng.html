@@ -1,0 +1,34 @@
+<ion-view title="{{chat.name}}">
+  <ion-content class="chat" delegate-handle="chatScroll">
+    <div class="message-list">
+      <div ng-repeat="message in messages" class="message-wrapper">
+        <div class="message" ng-class-even="'message-mine'" ng-class-odd="'message-other'">
+          <div class="message-text">{{message.text}}</div>
+          <span class="message-timestamp">{{message.timestamp | amDateFormat: 'HH:MM'}}</span>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+
+  <ion-footer-bar keyboard-attach class="bar-stable footer-chat item-input-inset">
+    <button class="button button-clear button-icon button-positive icon ion-ios-upload-outline"></button>
+
+    <label class="item-input-wrapper">
+      <input ng-model="data.message"
+             on-return="sendMessage(); closeKeyboard()"
+             on-focus="inputUp()"
+             on-blur="inputDown()"
+             dir="auto"
+             type="text"/>
+    </label>
+
+    <span ng-if="data.message.length > 0">
+      <button ng-click="sendMessage()" class="button button-clear button-positive">Send</button>
+    </span>
+    <span ng-if="!data.message || data.message.length === 0">
+      <button class="button button-clear button-icon button-positive icon ion-ios-camera-outline"></button>
+      <i class="buttons-seperator icon ion-android-more-vertical"></i>
+      <button class="button button-clear button-icon button-positive icon ion-ios-mic-outline"></button>
+    </span>
+  </ion-footer-bar>
+</ion-view>

@@ -13,7 +13,7 @@
       <div ng-repeat="chat in chats | orderBy:'-lastMessage.timestamp'"
            ui-sref=".chat({ id: chat._id })"
            class="item item-chat item-avatar item-icon-right">
-        <img class="logo" src="{{chat.logoUrl}}">
+        <img class="logo" ng-src="{{chat.picture}}">
         <h2 class="name">{{chat.name}}</h2>
         <div class="last-message-text">{{chat.lastMessage.text}}</div>
         <span class="last-message-timestamp">{{chat.lastMessage.timestamp | waCalendar}}</span>

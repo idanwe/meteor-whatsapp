@@ -3,7 +3,9 @@ angular
   .controller('ChatsCtrl', ChatsCtrl);
 
 function ChatsCtrl ($scope, $ionicModal) {
-  $scope.chats = $scope.$meteorCollection(Chats, false);
+  $scope.chats = $scope.$meteorCollection(function () {
+    return Chats.find({ userIds: Meteor.userId() });
+  }, false);
 
   $ionicModal.fromTemplateUrl('client/templates/new-chat.ng.html', {
     scope: $scope

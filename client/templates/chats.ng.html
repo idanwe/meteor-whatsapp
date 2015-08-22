@@ -1,6 +1,6 @@
 <ion-view title="Chats">
   <ion-nav-buttons side="right">
-    <button class="button button-clear button-positive button-icon ion-ios-compose-outline"></button>
+    <button ng-click="openNewChatModal()" class="button button-clear button-positive button-icon ion-ios-compose-outline"></button>
   </ion-nav-buttons>
 
   <ion-nav-buttons side="left">
@@ -13,8 +13,8 @@
       <div ng-repeat="chat in chats | orderBy:'-lastMessage.timestamp'"
            ui-sref=".chat({ id: chat._id })"
            class="item item-chat item-avatar item-icon-right">
-        <img class="logo" ng-src="{{chat.picture}}">
-        <h2 class="name">{{chat.name}}</h2>
+        <img ng-src="{{chat | chatPicture}}">
+        <h2 class="name">{{chat | chatName}}</h2>
         <div class="last-message-text">{{chat.lastMessage.text}}</div>
         <span class="last-message-timestamp">{{chat.lastMessage.timestamp | waCalendar}}</span>
         <i class="icon ion-ios-arrow-forward"></i>

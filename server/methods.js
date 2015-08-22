@@ -29,5 +29,16 @@ Meteor.methods({
     }
 
     return Meteor.users.update(this.userId, { $set: { 'profile.name': name } });
+  },
+
+  updatePicture: function (data) {
+    check(data, String);
+
+    if (!this.userId) {
+      throw new Meteor.Error('not-logged-in',
+        'Must be logged in to update his picture.');
+    }
+
+    return Meteor.users.update(this.userId, { $set: { 'profile.picture': data } });
   }
 });

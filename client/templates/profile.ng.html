@@ -4,9 +4,14 @@
   </ion-nav-buttons>
 
   <ion-content class="profile">
-    <a class="profile-picture">
-      <img src="http://lorempixel.com/50/50" alt="profile picture">
-      edit
+    <a class="profile-picture positive" ng-click="updatePicture()">
+      <div ng-if="currentUser.profile.picture">
+        <img ng-src="{{currentUser.profile.picture}}" alt="profile picture">
+        edit
+      </div>
+      <div ng-if="!currentUser.profile.picture" class="upload-placehoder">
+        Add photo
+      </div>
     </a>
 
     <div class="instructions">

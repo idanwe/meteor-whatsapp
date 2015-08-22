@@ -6,7 +6,7 @@ Meteor.methods({
     });
 
     message.timestamp = new Date();
-    // message.user = Meteor.userId();
+    message.userId = Meteor.userId();
 
     Messages.insert(message);
     return Chats.update(message.chatId, { $set: { lastMessage: message } });

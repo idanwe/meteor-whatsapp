@@ -10,18 +10,29 @@ function ChatsCtrl ($scope, $ionicModal) {
   $ionicModal.fromTemplateUrl('client/templates/new-chat.ng.html', {
     scope: $scope
   }).then(function (modal) {
-    $scope.modal = modal;
+    $scope.newChatModal = modal;
+  });
+  $ionicModal.fromTemplateUrl('client/templates/new-group.ng.html', {
+    scope: $scope
+  }).then(function (modal) {
+    $scope.newGroupModal = modal;
   });
 
   $scope.$on('$destroy', function () {
-    $scope.modal.remove();
+    $scope.newChatModal.remove();
+    $scope.newGroupModal.remove();
   });
 
   $scope.openNewChatModal = openNewChatModal;
+  $scope.openNewGroupModal = openNewGroupModal;
 
   ////////////
 
   function openNewChatModal () {
-    $scope.modal.show();
+    $scope.newChatModal.show();
+  }
+
+  function openNewGroupModal () {
+    $scope.newGroupModal.show();
   }
 }

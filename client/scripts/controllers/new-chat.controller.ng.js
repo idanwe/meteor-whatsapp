@@ -13,7 +13,7 @@ function NewChatCtrl ($scope, $state, $meteor) {
   ////////////
 
   function hideModal () {
-    $scope.modal.hide();
+    $scope.newChatModal.hide();
   }
 
   function newChat (userId) {

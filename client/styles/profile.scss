@@ -1,7 +1,7 @@
-.profile {
+.profile, .new-group {
   padding-top: 20px;
 
-  .profile-picture {
+  .profile-picture, .group-picture {
     position: absolute;
     top: 0;
     left: 20px;
@@ -34,7 +34,7 @@
     color: gray;
   }
 
-  .profile-name {
+  .profile-name, .group-subject {
     margin-top: 20px;
   }
 }

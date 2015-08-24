@@ -1,0 +1,30 @@
+<ion-modal-view ng-controller="NewGroupCtrl">
+  <ion-header-bar>
+    <h1 class="title">New Group</h1>
+    <div class="buttons">
+      <button class="button button-clear button-positive" ng-click="hideModal()">Cancel</button>
+    </div>
+  </ion-header-bar>
+
+  <ion-content class="new-group">
+    <a class="group-picture positive" ng-click="addPicture()">
+      <div ng-if="data.picture">
+        <img ng-src="{{data.picture}}" alt="group icon">
+        edit
+      </div>
+      <div ng-if="!data.picture" class="upload-placehoder">
+        Add photo
+      </div>
+    </a>
+
+    <div class="instructions">
+      Please provide group subject and optional group icon
+    </div>
+
+    <div class="list profile-name">
+      <label class="item item-input">
+        <input ng-model="data.subject" type="text" placeholder="Group Subject">
+      </label>
+    </div>
+  </ion-content>
+</ion-modal-view>

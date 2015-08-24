@@ -8,8 +8,8 @@
   </ion-nav-buttons>
 
   <ion-content>
-
     <div class="list">
+      <a class="item positive" ng-click="openNewGroupModal()">New Group</a>
       <div ng-repeat="chat in chats | orderBy:'-lastMessage.timestamp'"
            ui-sref=".chat({ id: chat._id })"
            class="item item-chat item-avatar item-icon-right">

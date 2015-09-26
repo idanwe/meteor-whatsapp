@@ -16,3 +16,17 @@
         - index.html
     * /server
     * /public 
+
+### Step 2 - Mock chats view
+
+1. Add tabs and routes
+    * Add `tabs.ng.html`
+    * Add `routes.ng.js`
+2. Mock chats view
+    * Add ChatsCtrl
+    * Add `chats.ng.html`
+    * Add calendar filters
+        - Add moment `$ meteor add momentjs:moment`
+3. Setup sass
+    * Add sass `$ meteor add fourseven:scss`
+    * Add `chats.scss`

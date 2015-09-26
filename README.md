@@ -37,3 +37,18 @@
     * Add /lib/collections.js
 2. Add /server/boostrap.js
 3. Use angular meteor collection and remove() function
+
+### Step 4 - Add chat view
+
+1. Add chat detail view
+    * Add `chat-details.ng.html`
+    * Add `chat-details.scss`
+    * Add pictures: `chat-background.png`, `message-other.png`, `message-mine.png`
+        - images paths are absolute from the `public` folder
+    * Add angular moment 
+        - `$ meteor add jasonaibrahim:angular-moment`
+        - Add `'angularMoment'` to the app dependencies
+    * Add `input` directive for better mobile experience - `directives/input.directive.ng.js`
+2. Add `'newMessage` method
+    * Add `lib/methods.js`
+    * `$ meteor add check`

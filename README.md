@@ -30,3 +30,10 @@
 3. Setup sass
     * Add sass `$ meteor add fourseven:scss`
     * Add `chats.scss`
+
+### Step 3 - Add Collections
+
+1. Add Messages and Chats collections 
+    * Add /lib/collections.js
+2. Add /server/boostrap.js
+3. Use angular meteor collection and remove() function

@@ -94,3 +94,9 @@
 2. Add `'updatePicture'` method
 3. Add link to profile in settings
 
+### Step 9 - Send picutre
+
+1. Refactor `'sendMessage'` function to picture message
+2. Add `message.type`
+    * Run `db.messages.update({ type: { $exists: false } }, { $set: { type: 'text' } }, { multi: true })`
+3. Adjust `chats` and `chat-detail` templates and style

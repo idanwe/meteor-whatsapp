@@ -7,7 +7,12 @@
     <div class="message-list">
       <div ng-repeat="message in messages" class="message-wrapper">
        <div class="message" ng-class="message.userId === $root.currentUser._id ? 'message-mine' : 'message-other'">
-          <div class="message-text">{{message.text}}</div>
+          <ng-switch on="message.type">
+            <div ng-switch-when="text" class="text">{{message.text}}</div>
+            <div ng-switch-when="picture" class="picture">
+              <img ng-src="{{message.picture}}">
+            </div>
+          </ng-switch>
           <span class="message-timestamp">{{message.timestamp | amDateFormat: 'HH:MM'}}</span>
         </div>
       </div>
@@ -31,7 +36,7 @@
       <button ng-click="sendMessage()" class="button button-clear button-positive">Send</button>
     </span>
     <span ng-if="!data.message || data.message.length === 0">
-      <button class="button button-clear button-icon button-positive icon ion-ios-camera-outline"></button>
+      <button ng-click="sendPicture()" class="button button-clear button-icon button-positive icon ion-ios-camera-outline"></button>
       <i class="buttons-seperator icon ion-android-more-vertical"></i>
       <button class="button button-clear button-icon button-positive icon ion-ios-mic-outline"></button>
     </span>

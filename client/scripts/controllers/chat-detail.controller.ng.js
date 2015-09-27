@@ -2,7 +2,7 @@ angular
   .module('Whatsapp')
   .controller('ChatDetailCtrl', ChatDetailCtrl);
 
-function ChatDetailCtrl ($scope, $stateParams, $timeout, $meteor, $ionicScrollDelegate) {
+function ChatDetailCtrl ($scope, $stateParams, $timeout, $meteor, $ionicScrollDelegate, $ionicPopup, $log) {
   var chatId = $stateParams.chatId;
   var isIOS = ionic.Platform.isWebView() && ionic.Platform.isIOS();
 
@@ -18,6 +18,7 @@ function ChatDetailCtrl ($scope, $stateParams, $timeout, $meteor, $ionicScrollDe
   });
 
   $scope.sendMessage = sendMessage;
+  $scope.sendPicture = sendPicture;
   $scope.inputUp = inputUp;
   $scope.inputDown = inputDown;
   $scope.closeKeyboard = closeKeyboard;
@@ -31,10 +32,29 @@ function ChatDetailCtrl ($scope, $stateParams, $timeout, $meteor, $ionicScrollDe
 
     $meteor.call('newMessage', {
       text: $scope.data.message,
+      type: 'text',
       chatId: chatId
     });
 
     delete $scope.data.message;
+  }
+
+  function sendPicture () {
+    MeteorCameraUI.getPicture({}, function (err, data) {
+      if (err && err.error == 'cancel') {
+        return;
+      }
+
+      if (err) {
+        return handleError(err);
+      }
+
+      $meteor.call('newMessage', {
+        picture: data,
+        type: 'picture',
+        chatId: chatId
+      });
+    });
   }
 
   function inputUp () {
@@ -57,5 +77,14 @@ function ChatDetailCtrl ($scope, $stateParams, $timeout, $meteor, $ionicScrollDe
 
   function closeKeyboard () {
     // cordova.plugins.Keyboard.close();
+  }
+
+  function handleError (err) {
+    $log.error('profile save error ', err);
+    $ionicPopup.alert({
+      title: err.reason || 'Save failed',
+      template: 'Please try again',
+      okType: 'button-positive button-clear'
+    });
   }
 }

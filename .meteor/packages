@@ -23,11 +23,5 @@ fourseven:scss
 jasonaibrahim:angular-moment
 check
 okland:accounts-phone
-<<<<<<< HEAD
-=======
-<<<<<<< bf7aaca45570c348c9ac19d0ad1178c51442a81a
-okland:camera-ui
-=======
 reywood:publish-composite
->>>>>>> Add publish and subscribe
->>>>>>> 0af4b70... Add publish and subscribe
+okland:camera-ui

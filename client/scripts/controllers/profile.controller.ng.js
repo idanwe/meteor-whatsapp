@@ -11,6 +11,7 @@ function ProfileCtrl ($scope, $state, $meteor, $ionicLoading, $ionicPopup, $log)
   };
 
   $scope.updateName = updateName;
+  $scope.updatePicture = updatePicture;
 
   ////////////
 
@@ -24,6 +25,28 @@ function ProfileCtrl ($scope, $state, $meteor, $ionicLoading, $ionicPopup, $log)
         $state.go('tab.chats');
       })
       .catch(handleError);
+  }
+
+  function updatePicture () {
+    MeteorCameraUI.getPicture({ width: 60, height: 60 }, function (err, data) {
+      if (err && err.error == 'cancel') {
+        return;
+      }
+
+      if (err) {
+        return handleError(err);
+      }
+
+      $ionicLoading.show({
+        template: 'Updating picture...'
+      });
+
+      $meteor.call('updatePicture', data)
+        .finally(function () {
+          $ionicLoading.hide();
+        })
+        .catch(handleError);
+    });
   }
 
   function handleError (err) {

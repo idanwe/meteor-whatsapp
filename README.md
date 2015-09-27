@@ -87,3 +87,10 @@
     * Subscribe at the 'tab' state - resolve `$meteor.subscribe('chats');`
 3. Add `'users'` publish
     * Subscribe at new chat controller
+
+### Step 8 - Add profile picture
+
+1. `$ meteor add okland:camera-ui`
+2. Add `'updatePicture'` method
+3. Add link to profile in settings
+

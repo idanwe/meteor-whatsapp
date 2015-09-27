@@ -52,3 +52,20 @@
 2. Add `'newMessage` method
     * Add `lib/methods.js`
     * `$ meteor add check`
+
+### Step 5 - Add users
+
+1. Add login with phone number
+    * `$ meteor add okland:accounts-phone`
+    * Add `server/sms.js` and `settings.json`
+2. Add login flow:
+    * Add `'login'`, `'confirmation'`, `'profile'` states
+    * Server: Add `'updateName'` method 
+    * Add 'login', 'profile' style files
+3. Ensure that user is logged in:
+    * Ensure user before 'tab', 'profile' states - resolve `$meteor.requireUser()`
+    * Redirect to login route - `auth.js`
+    * Server: Ensure that user logged in before preform methods
+4. Server: Add `userId` to message 
+5. Add `'settings'` tab with logout button
+    * Add controller and template

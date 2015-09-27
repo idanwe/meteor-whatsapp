@@ -4,7 +4,6 @@ angular:angular@1.4.6
 angular:angular-animate@1.4.6
 angular:angular-sanitize@1.4.6
 angularui:angular-ui-router@0.2.15
-autopublish@1.0.4
 autoupdate@1.2.3
 babel-compiler@5.8.24_1
 babel-runtime@0.1.4
@@ -68,6 +67,7 @@ reactive-dict@1.1.1
 reactive-var@1.0.6
 reload@1.1.4
 retry@1.0.4
+reywood:publish-composite@1.4.2
 routepolicy@1.0.6
 service-configuration@1.0.5
 session@1.1.1

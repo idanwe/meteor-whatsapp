@@ -77,3 +77,13 @@
 3. Add `chatName` and `chatPicture` filters to get data by user _id
 4. `$ meteor remove insecure`
 5. Add `'removeChat'` method and change in `ChatsCtrl`
+
+### Step 7 - Publish and subscribe
+
+1. `$ meteor remove autopublish`
+2. Add `'chats'` publish 
+    * `$ meteor add reywood:publish-composite`
+    * `$ touch publications.js`
+    * Subscribe at the 'tab' state - resolve `$meteor.subscribe('chats');`
+3. Add `'users'` publish
+    * Subscribe at new chat controller

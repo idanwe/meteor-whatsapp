@@ -16,7 +16,6 @@ standard-minifiers      # JS/CSS minifiers run for production mode
 es5-shim                # ECMAScript 5 compatibility for older browsers.
 ecmascript              # Enable ECMAScript2015+ syntax in app code
 
-autopublish             # Publish all data to the clients (for prototyping)
 angular
 driftyco:ionic
 momentjs:moment
@@ -24,3 +23,11 @@ fourseven:scss
 jasonaibrahim:angular-moment
 check
 okland:accounts-phone
+<<<<<<< HEAD
+=======
+<<<<<<< bf7aaca45570c348c9ac19d0ad1178c51442a81a
+okland:camera-ui
+=======
+reywood:publish-composite
+>>>>>>> Add publish and subscribe
+>>>>>>> 0af4b70... Add publish and subscribe

@@ -3,9 +3,11 @@ angular
   .controller('NewChatCtrl', NewChatCtrl);
 
 function NewChatCtrl ($scope, $state, $meteor) {
-  $scope.users = $scope.$meteorCollection(function () {
-    return Meteor.users.find({ _id: { $ne: Meteor.userId() } });
-  }, false);
+  $scope.$meteorSubscribe('users').then(function () {
+    $scope.users = $scope.$meteorCollection(function () {
+      return Meteor.users.find({ _id: { $ne: Meteor.userId() } });
+    }, false);
+  });
 
   $scope.hideModal = hideModal;
   $scope.newChat = newChat;

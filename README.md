@@ -69,3 +69,11 @@
 4. Server: Add `userId` to message 
 5. Add `'settings'` tab with logout button
     * Add controller and template
+
+### Step 6 - Create and remove chat
+
+1. Add new chat modal view - add controller and template
+2. Add `'newChat'` method and stub
+3. Add `chatName` and `chatPicture` filters to get data by user _id
+4. `$ meteor remove insecure`
+5. Add `'removeChat'` method and change in `ChatsCtrl`
